@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار اللغة الإنجليزية الشامل</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+            --border: #e2e8f0;
+            --correct: #10b981;
+            --incorrect: #ef4444;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h1 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .quiz-section-title {
+            background-color: #eef2ff;
+            color: var(--primary);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 30px 0 20px 0;
+            border-right: 4px solid var(--primary);
+        }
+
+        .question-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .question-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            direction: ltr;
+            text-align: left;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            direction: ltr;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-align: left;
+        }
+
+        .option-label:hover {
+            background-color: #f1f5f9;
+        }
+
+        .option-label input {
+            margin-right: 12px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 16px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 30px;
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        #result-card {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background: #f0fdf4;
+            border: 2px solid var(--correct);
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .score-display {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--correct);
+            margin: 15px 0;
+        }
+
+        .correct-opt {
+            background-color: #d1fae5 !important;
+            border-color: var(--correct) !important;
+            color: #065f46;
+        }
+
+        .incorrect-opt {
+            background-color: #fee2e2 !important;
+            border-color: var(--incorrect) !important;
+            color: #991b1b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>اختبار اللغة الإنجليزية الشامل (20 سؤالاً)</h1>
+        <p>اختبر معلوماتك في الأفعال وتصاريفها والمفردات ومعانيها. التصحيح أوتوماتيكي فور الانتهاء!</p>
+    </header>
+
+    <form id="quiz-form">
+        <!-- Section 1 -->
+        <div class="quiz-section-title">القسم الأول: تصاريف الأفعال (Verbs)</div>
+
+        <div class="question-card" id="q1">
+            <div class="question-title">1. What is the past simple (V2) of "begin"?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q1" value="A"> A) begun</label>
+                <label class="option-label"><input type="radio" name="q1" value="B"> B) began</label>
+                <label class="option-label"><input type="radio" name="q1" value="C"> C) beginned</label>
+                <label class="option-label"><input type="radio" name="q1" value="D"> D) begins</label>
+            </div>
+        </div>
+
+        <div class="question-card" id="q2">
+            <div class="question-title">2. What is the past participle (P.P / V3) of "know"?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q2" value="A"> A) knew</label>
+                <label class="option-label"><input type="radio" name="q2" value="B"> B) known</label>
+                <label class="option-label"><input type="radio" name="q2" value="C"> C) knows</label>
+                <label class="option-label"><input type="radio" name="q2" value="D"> D) knewed</label>
+            </div>
+        </div>
+
+        <div class="question-card" id="q3">
+            <div class="question-title">3. What is the base form (Present) of "spoken"?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q3" value="A"> A) speak</label>
+                <label class="option-label"><input type="radio" name="q3" value="B"> B) spoke</label>
+                <label class="option-label"><input type="radio" name="q3" value="C"> C) speech</label>
+                <label class="option-label"><input type="radio" name="q3" value="D"> D) speaking</label>
+            </div>
+        </div>
+
+        <div class="question-card" id="q4">
+            <div class="question-title">4. Present: "find" &rarr; Past: "found" &rarr; P.P: "_____"</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q4" value="A"> A) finded</label>
+                <label class="option-label"><input type="radio" name="q4" value="B"> B) found</label>
+                <label class="option-label"><input type="radio" name="q4" value="C"> C) founding</label>
+                <label class="option-label"><input type="radio" name="q4" value="D"> D) find</label>
+            </div>
+        </div>
+
+        <div class="question-card" id="q5">
+            <div class="question-title">5. What is the past form (V2) of "tell"?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q5" value="A"> A) telled</label>
+                <label class="option-label"><input type="radio" name="q5" value="B"> B) told</label>
+                <label class="option-label"><input type="radio" name="q5" value="C"> C) telling</label>
+                <label class="option-label"><input type="radio" name="q5" value="D"> D) tell</label>
+            </div>
+        </div>
+
+        <div class="question-card" id="q6">
+            <div class="question-title">6. What is the past participle (P.P) of "be"?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q6" value="A"> A) was</label>
+                <label class="option-label"><input type="radio" name="q6" value="B"> B) were</label>
+                <label class="option-label"><input type="radio" name="q6" value="C"> C) been</label>
+                <label class="option-label"><input type="radio" name="q6" value="D"> D) being</label>
+            </div>
+        </div>
+
+        <div class="question-card" id="q7">
+            <div class="question-title">7. What is the past participle (P.P) of "get"?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q7" value="A"> A) got</label>
+                <label class="option-label"><input type="radio" name="q7" value="B"> B) gotten</label>
+                <label class="option-label"><input type="radio" name="q7" value="C"> C) gets</label>
+                <label class="option-label"><input type="radio" name="q7" value="D"> D) getting</label>
+            </div>
+        </div>
+
+        <div class="question-card" id="q8">
+            <div class="question-title">8. What is the past simple (V2) of "hear"?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q8" value="A"> A) heared</label>
+                <label class="option-label"><input type="radio" name="q8" value="B"> B) heard</label>
+                <label class="option-label"><input type="radio" name="q8" value="C"> C) hearing</label>
+                <label class="option-label"><input type="radio" name="q8" value="D"> D) hears</label>
+            </div>
+        </div>
+
+        <div class="question-card" id="q9">
+            <div class="question-title">9. What is the present form of "discussed"?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q9" value="A"> A) discuss</label>
+                <label class="option-label"><input type="radio" name="q9" value="B"> B) discussion</label>
+                <label class="option-label"><input type="radio" name="q9" value="C"> C) discussing</label>
+                <label class="option-label"><input type="radio" name="q9" value="D"> D) discusses</label>
+            </div>
+        </div>
+
+        <div class="question-card" id="q10">
+            <div class="question-title">10. Present: "learn" &rarr; Past: "_____"</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q10" value="A"> A) learnt</label>
+                <label class="option-label"><input type="radio" name="q10" value="B"> B) learn</label>
+                <label class="option-label"><input type="radio" name="q10" value="C"> C) learning</label>
+                <label class="option-label"><input type="radio" name="q10" value="D"> D) learnes</label>
+            </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="quiz-section-title">القسم الثاني: المفردات والمعاني (Vocabulary)</div>
+
+        <div class="question-card" id="q11">
+            <div class="question-title">11. What is the English meaning of "مؤسسات مجتمعية"?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q11" value="A"> A) Societies fair</label>
+                <label class="option-label"><input type="radio" name="q11" value="B"> B) Joining clubs</label>
+                <label class="option-label"><input type="radio" name="q11" value="C"> C) Local culture</label>
+                <label class="option-label"><input type="radio" name="q11" value="D"> D) General lecture</label>
+            </div>
+        </div>
+
+        <div class="question-card" id="q12">
+            <div class="question-title">12. Which word means "حيوية / حيوي"?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q12" value="A"> A) Difficult</label>
+                <label class="option-label"><input type="radio" name="q12" value="B"> B) Vital</label>
+                <label class="option-label"><input type="radio" name="q12" value="C"> C) Great</label>
+                <label class="option-label"><input type="radio" name="q12" value="D"> D) Local</label>
+            </div>
+        </div>
+
+        <div class="question-card" id="q13">
+            <div class="question-title">13. What is the Arabic meaning of "settling"?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q13" value="A"> A) يحب</label>
+                <label class="option-label"><input type="radio" name="q13" value="B"> B) يستقر</label>
+                <label class="option-label"><input type="radio" name="q13" value="C"> C) يتوسع</label>
+                <label class="option-label"><input type="radio" name="q13" value="D"> D) يتطوع</label>
+            </div>
+        </div>
+
+        <div class="question-card" id="q14">
+            <div class="question-title">14. What does "at least" mean in Arabic?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q14" value="A"> A) على الأقل</label>
+                <label class="option-label"><input type="radio" name="q14" value="B"> B) حتى الآن</label>
+                <label class="option-label"><input type="radio" name="q14" value="C"> C) بالرغم من ذلك</label>
+                <label class="option-label"><input type="radio" name="q14" value="D"> D) في الحقيقة</label>
+            </div>
+        </div>
+
+        <div class="question-card" id="q15">
+            <div class="question-title">15. What is the English word for "متطوع"?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q15" value="A"> A) Beginner</label>
+                <label class="option-label"><input type="radio" name="q15" value="B"> B) Lecture</label>
+                <label class="option-label"><input type="radio" name="q15" value="C"> C) Volunteer</label>
+                <label class="option-label"><input type="radio" name="q15" value="D"> D) Connection</label>
+            </div>
+        </div>
+
+        <div class="question-card" id="q16">
+            <div class="question-title">16. What does "actually" mean in Arabic?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q16" value="A"> A) بالرغم من ذلك</label>
+                <label class="option-label"><input type="radio" name="q16" value="B"> B) في الحقيقة</label>
+                <label class="option-label"><input type="radio" name="q16" value="C"> C) بالطبع</label>
+                <label class="option-label"><input type="radio" name="q16" value="D"> D) حتى الآن</label>
+            </div>
+        </div>
+
+        <div class="question-card" id="q17">
+            <div class="question-title">17. What is the English word for "محاضرة"?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q17" value="A"> A) College</label>
+                <label class="option-label"><input type="radio" name="q17" value="B"> B) Course</label>
+                <label class="option-label"><input type="radio" name="q17" value="C"> C) Lecture</label>
+                <label class="option-label"><input type="radio" name="q17" value="D"> D) Discussion</label>
+            </div>
+        </div>
+
+        <div class="question-card" id="q18">
+            <div class="question-title">18. What does "so far" mean in Arabic?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q18" value="A"> A) حتى الآن</label>
+                <label class="option-label"><input type="radio" name="q18" value="B"> B) هناك</label>
+                <label class="option-label"><input type="radio" name="q18" value="C"> C) تقريباً</label>
+                <label class="option-label"><input type="radio" name="q18" value="D"> D) ما يزال</label>
+            </div>
+        </div>
+
+        <div class="question-card" id="q19">
+            <div class="question-title">19. What is the English meaning of "توسع"?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q19" value="A"> A) Expand</label>
+                <label class="option-label"><input type="radio" name="q19" value="B"> B) Organise</label>
+                <label class="option-label"><input type="radio" name="q19" value="C"> C) Join</label>
+                <label class="option-label"><input type="radio" name="q19" value="D"> D) Pass</label>
+            </div>
+        </div>
+
+        <div class="question-card" id="q20">
+            <div class="question-title">20. What is the Arabic meaning of "interests"?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q20" value="A"> A) اهتمامات</label>
+                <label class="option-label"><input type="radio" name="q20" value="B"> B) نقاشات</label>
+                <label class="option-label"><input type="radio" name="q20" value="C"> C) ثقافة</label>
+                <label class="option-label"><input type="radio" name="q20" value="D"> D) وضع</label>
+            </div>
+        </div>
+
+        <button type="button" onclick="submitQuiz()">إنهاء الاختبار والتصحيح</button>
+    </form>
+
+    <div id="result-card">
+        <h2>نتيجة الاختبار</h2>
+        <div class="score-display" id="score-text">0 / 20</div>
+        <p id="feedback-text"></p>
+    </div>
+</div>
+
+<script>
+    const answers = {
+        q1: 'B', q2: 'B', q3: 'A', q4: 'B', q5: 'B',
+        q6: 'C', q7: 'B', q8: 'B', q9: 'A', q10: 'A',
+        q11: 'A', q12: 'B', q13: 'B', q14: 'A', q15: 'C',
+        q16: 'B', q17: 'C', q18: 'A', q19: 'A', q20: 'A'
+    };
+
+    function submitQuiz() {
+        let score = 0;
+        const total = 20;
+
+        for (let key in answers) {
+            const selected = document.querySelector(`input[name="${key}"]:checked`);
+            const options = document.querySelectorAll(`input[name="${key}"]`);
+            
+            options.forEach(opt => {
+                const label = opt.parentElement;
+                label.classList.remove('correct-opt', 'incorrect-opt');
+                
+                if (opt.value === answers[key]) {
+                    label.classList.add('correct-opt');
+                }
+            });
+
+            if (selected) {
+                if (selected.value === answers[key]) {
+                    score++;
+                } else {
+                    selected.parentElement.classList.add('incorrect-opt');
+                }
+            }
+        }
+
+        const scoreText = document.getElementById('score-text');
+        const feedbackText = document.getElementById('feedback-text');
+        const resultCard = document.getElementById('result-card');
+
+        scoreText.innerText = `${score} / ${total}`;
+        
+        let percentage = (score / total) * 100;
+        if (percentage >= 85) {
+            feedbackText.innerText = 'ممتاز جداً! أداء رائع ومتمكن من المادة.';
+        } else if (percentage >= 60) {
+            feedbackText.innerText = 'جيد جداً، يمكنك مراجعة الإجابات الخاطئة للتحسين.';
+        } else {
+            feedbackText.innerText = 'تحتاج إلى إعادة مراجعة المفردات والأفعال جيداً.';
+        }
+
+        resultCard.style.display = 'block';
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
