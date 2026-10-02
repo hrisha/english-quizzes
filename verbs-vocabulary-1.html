@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جدول الأفعال والمفردات الإنجليزية - English Verbs & Vocabulary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e8eefb 100%);
+            min-height: 100vh;
+        }
+        .en-font {
+            font-family: 'Poppins', sans-serif;
+        }
+        .tab-active {
+            background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35);
+        }
+        .table-row-hover:hover {
+            transform: translateY(-2px);
+            transition: all 0.2s ease;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="p-3 md:p-8">
+
+    <div class="max-w-6xl mx-auto">
+        <!-- Main Container Card -->
+        <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-indigo-50/50">
+            
+            <!-- Header Section -->
+            <div class="bg-gradient-to-r from-indigo-700 via-indigo-600 to-purple-600 p-6 md:p-10 text-white text-center relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+                <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-purple-500/20 rounded-full blur-2xl"></div>
+                
+                <h1 class="text-2xl md:text-4xl font-extrabold mb-3 tracking-wide">
+                    دليل الأفعال والمفردات الإنجليزية
+                </h1>
+                <p class="text-indigo-100 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+                    مرجع تفاعلي وشامل لجميع الأفعال وتصريفاتها والمفردات الأساسية مع استماع للنطق الصحيح باللغة الإنجليزية.
+                </p>
+
+                <!-- Search Input Bar -->
+                <div class="mt-8 max-w-xl mx-auto relative">
+                    <div class="relative flex items-center">
+                        <input type="text" id="searchInput" onkeyup="filterTables()" 
+                            placeholder="ابحث عن كلمة بالإنجليزية أو معناه بالعربية..." 
+                            class="w-full py-3.5 pr-12 pl-12 rounded-2xl bg-white/95 backdrop-blur text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-indigo-300 shadow-lg text-sm md:text-base transition">
+                        <div class="absolute right-4 text-indigo-500 text-lg">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <button onclick="clearSearch()" id="clearBtn" class="hidden absolute left-4 text-gray-400 hover:text-gray-600 text-lg">
+                            <i class="fa-solid fa-circle-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-4 md:p-6 bg-slate-50 border-b border-gray-100 flex flex-wrap justify-center gap-3">
+                <button onclick="switchTab('verbs')" id="verbsTabBtn" class="tab-active flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all duration-300">
+                    <i class="fa-solid fa-bolt text-amber-300"></i>
+                    <span>جدول الأفعال وتصاريفها</span>
+                    <span id="verbsCount" class="bg-white/20 text-xs px-2 py-0.5 rounded-full mr-1">17</span>
+                </button>
+                <button onclick="switchTab('vocab')" id="vocabTabBtn" class="bg-white text-gray-600 hover:bg-gray-100 flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all duration-300 border border-gray-200">
+                    <i class="fa-solid fa-book-bookmark text-indigo-500"></i>
+                    <span>جدول المفردات والمعاني</span>
+                    <span id="vocabCount" class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded-full mr-1">41</span>
+                </button>
+            </div>
+
+            <!-- Content Container -->
+            <div class="p-4 md:p-8">
+                
+                <div id="verbsSection" class="block">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg md:text-xl font-bold text-gray-800 flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-indigo-600"></span>
+                            الأفعال وتصريفاتها الثلاثة (Verbs Table)
+                        </h2>
+                        <span class="text-xs md:text-sm text-gray-500">اضغط على أيقونة الصوت <i class="fa-solid fa-volume-high text-indigo-500"></i> للاستماع للكلمة</span>
+                    </div>
+
+                    <div class="overflow-x-auto custom-scrollbar rounded-2xl border border-indigo-100 shadow-sm">
+                        <table class="w-full text-right border-collapse min-w-[650px]">
+                            <thead>
+                                <tr class="bg-indigo-900 text-white text-sm">
+                                    <th class="p-4 text-center w-16">#</th>
+                                    <th class="p-4 bg-indigo-800 font-bold">المضارع (Present V1)</th>
+                                    <th class="p-4 bg-indigo-700 font-bold">الماضي (Past V2)</th>
+                                    <th class="p-4 bg-indigo-800 font-bold">التصريف الثالث (P.P V3)</th>
+                                    <th class="p-4 bg-indigo-900 font-bold text-center">المعنى بالعربية</th>
+                                </tr>
+                            </thead>
+                            <tbody id="verbsTbody" class="divide-y divide-gray-100 text-sm md:text-base">
+                                <!-- Generated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="vocabSection" class="hidden">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg md:text-xl font-bold text-gray-800 flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-purple-600"></span>
+                            جدول الكلمات والمفردات (Vocabulary Table)
+                        </h2>
+                        <span class="text-xs md:text-sm text-gray-500">اضغط على أيقونة الصوت <i class="fa-solid fa-volume-high text-purple-500"></i> للاستماع للكلمة</span>
+                    </div>
+
+                    <div class="overflow-x-auto custom-scrollbar rounded-2xl border border-purple-100 shadow-sm">
+                        <table class="w-full text-right border-collapse min-w-[500px]">
+                            <thead>
+                                <tr class="bg-purple-900 text-white text-sm">
+                                    <th class="p-4 text-center w-16">#</th>
+                                    <th class="p-4 bg-purple-800 font-bold">الكلمة / العبارة (English)</th>
+                                    <th class="p-4 bg-purple-900 font-bold">المعنى بالعربية</th>
+                                </tr>
+                            </thead>
+                            <tbody id="vocabTbody" class="divide-y divide-gray-100 text-sm md:text-base">
+                                <!-- Generated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Empty Search Result Alert -->
+                <div id="noResults" class="hidden text-center py-12">
+                    <div class="w-16 h-16 bg-indigo-50 text-indigo-500 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">
+                        <i class="fa-solid fa-face-frown"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-700 mb-1">لم يتم العثور على نتائج</h3>
+                    <p class="text-gray-500 text-sm">جرب البحث بكلمة أخرى بالإنجليزية أو بالعربية</p>
+                </div>
+
+            </div>
+
+            <!-- Footer -->
+            <div class="bg-gray-50 p-4 border-t border-gray-100 text-center text-xs text-gray-500">
+                جدول تعليمي تفاعلي مع نطق إلكتروني آلي للكلمات والعبارات 🎧
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Verbs Data
+        const verbsData = [
+            { present: "be (is, am, are)", past: "was, were", pp: "been", meaning: "يكون" },
+            { present: "do / does", past: "did", pp: "done", meaning: "يعمل" },
+            { present: "pass", past: "passed", pp: "passed", meaning: "يمر / يجتاز" },
+            { present: "tell", past: "told", pp: "told", meaning: "يخبر" },
+            { present: "use", past: "used", pp: "used", meaning: "يستخدم" },
+            { present: "know", past: "knew", pp: "known", meaning: "يعرف" },
+            { present: "begin", past: "began", pp: "begun", meaning: "يبدأ" },
+            { present: "like", past: "liked", pp: "liked", meaning: "يحب" },
+            { present: "study", past: "studied", pp: "studied", meaning: "يدرس" },
+            { present: "speak", past: "spoke", pp: "spoken", meaning: "يتكلم" },
+            { present: "get", past: "got", pp: "gotten", meaning: "يأخذ / يحصل على" },
+            { present: "hear", past: "heard", pp: "heard", meaning: "يسمع" },
+            { present: "find", past: "found", pp: "found", meaning: "يجد" },
+            { present: "join", past: "joined", pp: "joined", meaning: "ينضم / يلتحق" },
+            { present: "discuss", past: "discussed", pp: "discussed", meaning: "يناقش" },
+            { present: "organise", past: "organised", pp: "organised", meaning: "ينظم" },
+            { present: "learn", past: "learnt", pp: "learnt", meaning: "يتعلم" }
+        ];
+
+        // Vocabulary Data
+        const vocabData = [
+            { word: "Societies fair", meaning: "مؤسسات مجتمعية" },
+            { word: "College", meaning: "كلية" },
+            { word: "Nearly", meaning: "تقريباً" },
+            { word: "So far", meaning: "حتى الآن" },
+            { word: "Though", meaning: "رغم ذلك" },
+            { word: "Used to", meaning: "اعتاد على" },
+            { word: "There", meaning: "هناك" },
+            { word: "Their", meaning: "هم (اسم إشارة للملكية)" },
+            { word: "Beginner", meaning: "مبتدئ" },
+            { word: "Seem", meaning: "يبدو" },
+            { word: "Still", meaning: "ما يزال" },
+            { word: "Get", meaning: "يأخذ" },
+            { word: "Hear", meaning: "يسمع" },
+            { word: "Here", meaning: "هنا" },
+            { word: "Her", meaning: "لها (ضمير ملكية)" },
+            { word: "Lecture", meaning: "محاضرة" },
+            { word: "Till", meaning: "حتى" },
+            { word: "Tell", meaning: "يخبر" },
+            { word: "Settling", meaning: "يستقر" },
+            { word: "Course", meaning: "مادة / مساق" },
+            { word: "Joining clubs", meaning: "ينضم للنادي" },
+            { word: "Actually", meaning: "في الحقيقة" },
+            { word: "Of course", meaning: "بالطبع" },
+            { word: "Discussion", meaning: "نقاشات" },
+            { word: "Organise", meaning: "تنظيم" },
+            { word: "Culture", meaning: "ثقافة" },
+            { word: "Even", meaning: "حتى" },
+            { word: "At least", meaning: "على الأقل" },
+            { word: "Connection", meaning: "تواصل / اتصال" },
+            { word: "As well", meaning: "كذلك" },
+            { word: "Situation", meaning: "وضع / حالة" },
+            { word: "Sound", meaning: "يبدو / صوت" },
+            { word: "Local", meaning: "محلي" },
+            { word: "Difficult", meaning: "صعب" },
+            { word: "Vital", meaning: "حيوي" },
+            { word: "Great", meaning: "عظيم" },
+            { word: "Mind", meaning: "عقل" },
+            { word: "Expand", meaning: "توسع" },
+            { word: "Interests", meaning: "اهتمامات" },
+            { word: "Volunteer", meaning: "متطوع" },
+            { word: "Political", meaning: "سياسي" }
+        ];
+
+        function renderVerbs() {
+            const tbody = document.getElementById('verbsTbody');
+            tbody.innerHTML = '';
+            verbsData.forEach((item, index) => {
+                const tr = document.createElement('tr');
+                tr.className = `table-row-hover ${index % 2 === 0 ? 'bg-white' : 'bg-slate-50/70'} hover:bg-indigo-50/60 transition`;
+                tr.innerHTML = `
+                    <td class="p-3 text-center text-gray-400 font-bold text-xs">${index + 1}</td>
+                    <td class="p-3 text-indigo-900 font-semibold en-font">
+                        <div class="flex items-center gap-2">
+                            <button onclick="speak('${item.present.split(' ')[0]}')" class="text-indigo-400 hover:text-indigo-600 transition" title="نطق الكلمة">
+                                <i class="fa-solid fa-volume-high text-xs"></i>
+                            </button>
+                            <span>${item.present}</span>
+                        </div>
+                    </td>
+                    <td class="p-3 text-emerald-800 font-medium en-font">${item.past}</td>
+                    <td class="p-3 text-purple-800 font-medium en-font">${item.pp}</td>
+                    <td class="p-3 text-gray-800 font-bold text-center">${item.meaning}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function renderVocab() {
+            const tbody = document.getElementById('vocabTbody');
+            tbody.innerHTML = '';
+            vocabData.forEach((item, index) => {
+                const tr = document.createElement('tr');
+                tr.className = `table-row-hover ${index % 2 === 0 ? 'bg-white' : 'bg-purple-50/30'} hover:bg-purple-50/80 transition`;
+                tr.innerHTML = `
+                    <td class="p-3 text-center text-gray-400 font-bold text-xs">${index + 1}</td>
+                    <td class="p-3 text-purple-950 font-bold en-font">
+                        <div class="flex items-center gap-2">
+                            <button onclick="speak('${item.word}')" class="text-purple-400 hover:text-purple-600 transition" title="نطق الكلمة">
+                                <i class="fa-solid fa-volume-high text-xs"></i>
+                            </button>
+                            <span>${item.word}</span>
+                        </div>
+                    </td>
+                    <td class="p-3 text-gray-800 font-bold">${item.meaning}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function switchTab(tab) {
+            const verbsSec = document.getElementById('verbsSection');
+            const vocabSec = document.getElementById('vocabSection');
+            const verbsBtn = document.getElementById('verbsTabBtn');
+            const vocabBtn = document.getElementById('vocabTabBtn');
+
+            if (tab === 'verbs') {
+                verbsSec.classList.remove('hidden');
+                vocabSec.classList.add('hidden');
+                
+                verbsBtn.className = "tab-active flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all duration-300";
+                vocabBtn.className = "bg-white text-gray-600 hover:bg-gray-100 flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all duration-300 border border-gray-200";
+            } else {
+                verbsSec.classList.add('hidden');
+                vocabSec.classList.remove('hidden');
+
+                vocabBtn.className = "tab-active flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all duration-300 !bg-gradient-to-r !from-purple-600 !to-indigo-600";
+                verbsBtn.className = "bg-white text-gray-600 hover:bg-gray-100 flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all duration-300 border border-gray-200";
+            }
+            filterTables();
+        }
+
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); // Stop any previous speech
+                const cleanText = text.replace(/[^a-zA-Z\s]/g, '');
+                const utterance = new SpeechSynthesisUtterance(cleanText);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.9;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        function filterTables() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const clearBtn = document.getElementById('clearBtn');
+            
+            if (query.length > 0) {
+                clearBtn.classList.remove('hidden');
+            } else {
+                clearBtn.classList.add('hidden');
+            }
+
+            let verbsVisibleCount = 0;
+            const verbRows = document.querySelectorAll('#verbsTbody tr');
+            verbRows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    row.style.display = '';
+                    verbsVisibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            let vocabVisibleCount = 0;
+            const vocabRows = document.querySelectorAll('#vocabTbody tr');
+            vocabRows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    row.style.display = '';
+                    vocabVisibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            const noResults = document.getElementById('noResults');
+            const isVerbsTab = !document.getElementById('verbsSection').classList.contains('hidden');
+
+            if ((isVerbsTab && verbsVisibleCount === 0) || (!isVerbsTab && vocabVisibleCount === 0)) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            filterTables();
+        }
+
+        // Initialize on Load
+        window.onload = function() {
+            renderVerbs();
+            renderVocab();
+        };
+    </script>
+</body>
+</html>
