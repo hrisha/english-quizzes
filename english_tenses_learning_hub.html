@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مركز تعلم أزمنة المضارع | English Present Tenses Hub</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cairo & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Cairo', 'Inter', 'sans-serif'],
+                        english: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                        },
+                        simple: {
+                            light: '#eff6ff',
+                            border: '#93c5fd',
+                            main: '#3b82f6',
+                            dark: '#1d4ed8'
+                        },
+                        continuous: {
+                            light: '#f0fdf4',
+                            border: '#86efac',
+                            main: '#22c55e',
+                            dark: '#15803d'
+                        },
+                        perfect: {
+                            light: '#faf5ff',
+                            border: '#d8b4fe',
+                            main: '#a855f7',
+                            dark: '#7e22ce'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f8fafc;
+        }
+        .english-text {
+            font-family: 'Inter', sans-serif;
+            direction: ltr;
+            display: inline-block;
+        }
+        .card-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        }
+        .badge-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .7; }
+        }
+    </style>
+</head>
+<body class="text-slate-800 bg-slate-50 min-h-screen flex flex-col">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 backdrop-blur-md bg-white/90">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center text-white shadow-lg shadow-indigo-200">
+                    <i class="fa-solid fa-graduation-cap text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-black bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-600 bg-clip-text text-transparent">
+                        دليل قواعد الإنجليزية
+                    </h1>
+                    <p class="text-xs text-slate-500 font-semibold">مقارنة أزمنة المضارع الثلاثة (Present Tenses)</p>
+                </div>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <nav class="flex bg-slate-100 p-1.5 rounded-xl border border-slate-200 text-sm font-bold">
+                <button onclick="switchView('learn')" id="tab-learn" class="px-5 py-2 rounded-lg transition-all duration-200 bg-white text-indigo-600 shadow-sm">
+                    <i class="fa-solid fa-book-open ml-2"></i> الشرح والمقارنة
+                </button>
+                <button onclick="switchView('table')" id="tab-table" class="px-5 py-2 rounded-lg transition-all duration-200 text-slate-600 hover:text-slate-900">
+                    <i class="fa-solid fa-table-cells ml-2"></i> جدول المقارنة
+                </button>
+                <button onclick="switchView('quiz')" id="tab-quiz" class="px-5 py-2 rounded-lg transition-all duration-200 text-slate-600 hover:text-slate-900">
+                    <i class="fa-solid fa-circle-question ml-2"></i> اختبار تفاعلي
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="bg-gradient-to-b from-indigo-900 via-indigo-800 to-slate-900 text-white py-12 px-4 text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-4xl mx-auto relative z-10">
+            <span class="inline-block bg-indigo-500/30 text-indigo-200 border border-indigo-400/30 text-xs font-bold px-3 py-1 rounded-full mb-4">
+                <i class="fa-solid fa-bolt text-yellow-400 ml-1"></i> ملخص قواعد شامل ومبسط
+            </span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold mb-4 leading-tight">
+                أتقن أزمنة المضارع في اللغة الإنجليزية
+            </h2>
+            <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+                اكتشف الفروق الجوهرية بين المضارع البسيط، المضارع المستمر، والمضارع التام مع الأمثلة الشارحة والكلمات المفتاحية واختبر معلوماتك بسهولة!
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full">
+
+        <!-- VIEW 1: LEARNING CARDS -->
+        <div id="view-learn" class="space-y-12">
+
+            <!-- Tense Selector Filter for Mobile -->
+            <div class="flex justify-center gap-2 overflow-x-auto pb-2 sm:hidden">
+                <button onclick="scrollToTense('simple')" class="px-4 py-2 bg-blue-100 text-blue-700 text-xs font-bold rounded-lg whitespace-nowrap">المضارع البسيط</button>
+                <button onclick="scrollToTense('continuous')" class="px-4 py-2 bg-green-100 text-green-700 text-xs font-bold rounded-lg whitespace-nowrap">المضارع المستمر</button>
+                <button onclick="scrollToTense('perfect')" class="px-4 py-2 bg-purple-100 text-purple-700 text-xs font-bold rounded-lg whitespace-nowrap">المضارع التام</button>
+            </div>
+
+            <!-- GRID OF TENSES -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- 1. PRESENT SIMPLE -->
+                <article id="tense-simple" class="bg-white rounded-3xl border border-slate-200 card-shadow overflow-hidden flex flex-col transition-all hover:-translate-y-1 duration-300">
+                    <!-- Card Header -->
+                    <div class="bg-gradient-to-r from-blue-600 to-blue-500 p-6 text-white relative">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="bg-blue-800/40 text-blue-100 text-xs font-bold px-2.5 py-1 rounded-md border border-blue-300/20">Present Simple</span>
+                                <h3 class="text-2xl font-black mt-2">المضارع البسيط</h3>
+                            </div>
+                            <span class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-xl backdrop-blur-sm">
+                                🔄
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="p-6 space-y-6 flex-grow flex flex-col justify-between">
+                        <!-- Usage -->
+                        <div>
+                            <h4 class="text-xs font-extrabold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                                <i class="fa-solid fa-bullseye text-blue-500"></i> الاستخدام الرئيسي
+                            </h4>
+                            <p class="text-slate-700 text-sm leading-relaxed bg-blue-50/50 p-3 rounded-xl border border-blue-100">
+                                للتعبير عن <strong>العادات الروتينية</strong>، و<strong>الحقائق العلمية الثابتة</strong>، أو الأحداث التي تتكرر بانتظام.
+                            </p>
+                        </div>
+
+                        <!-- Formation -->
+                        <div>
+                            <h4 class="text-xs font-extrabold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                                <i class="fa-solid fa-cubes text-blue-500"></i> التكوين (Structure)
+                            </h4>
+                            <div class="bg-slate-900 text-slate-100 p-3.5 rounded-xl font-mono text-xs space-y-1.5 english-text w-full">
+                                <div class="text-blue-300">● I / You / We / They + V1 (Base)</div>
+                                <div class="text-emerald-300">● He / She / It + V1 + (s / es)</div>
+                            </div>
+                        </div>
+
+                        <!-- Keywords Badges -->
+                        <div>
+                            <h4 class="text-xs font-extrabold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                                <i class="fa-solid fa-key text-blue-500"></i> الكلمات الدالة (Keywords)
+                            </h4>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-1 rounded-lg border border-blue-200">Always</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-1 rounded-lg border border-blue-200">Usually</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-1 rounded-lg border border-blue-200">Often</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-1 rounded-lg border border-blue-200">Sometimes</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-1 rounded-lg border border-blue-200">Never</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-1 rounded-lg border border-blue-200">Every (day/week)</span>
+                            </div>
+                        </div>
+
+                        <!-- Examples List -->
+                        <div>
+                            <h4 class="text-xs font-extrabold text-slate-400 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                                <i class="fa-solid fa-list-check text-blue-500"></i> 5 أمثلة توضيحية
+                            </h4>
+                            <ul class="space-y-2.5 text-xs sm:text-sm">
+                                <li class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition-colors">
+                                    <div class="font-bold text-slate-900 english-text">1. The sun rises in the east.</div>
+                                    <div class="text-slate-500 text-xs mt-0.5">تشرق الشمس من الشرق. <span class="text-blue-600 font-semibold">(حقيقة علمية)</span></div>
+                                </li>
+                                <li class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition-colors">
+                                    <div class="font-bold text-slate-900 english-text">2. She drinks coffee every morning.</div>
+                                    <div class="text-slate-500 text-xs mt-0.5">هي تشرب القهوة كل صباح. <span class="text-blue-600 font-semibold">(عادة روتينية)</span></div>
+                                </li>
+                                <li class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition-colors">
+                                    <div class="font-bold text-slate-900 english-text">3. They play football on Fridays.</div>
+                                    <div class="text-slate-500 text-xs mt-0.5">هم يلعبون كرة القدم أيام الجمعة.</div>
+                                </li>
+                                <li class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition-colors">
+                                    <div class="font-bold text-slate-900 english-text">4. Water boils at 100°C.</div>
+                                    <div class="text-slate-500 text-xs mt-0.5">يغلي الماء عند 100 درجة مئوية.</div>
+                                </li>
+                                <li class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition-colors">
+                                    <div class="font-bold text-slate-900 english-text">5. He usually goes to work by bus.</div>
+                                    <div class="text-slate-500 text-xs mt-0.5">هو عادةً يذهب إلى العمل بالحافلة.</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 2. PRESENT CONTINUOUS -->
+                <article id="tense-continuous" class="bg-white rounded-3xl border border-slate-200 card-shadow overflow-hidden flex flex-col transition-all hover:-translate-y-1 duration-300">
+                    <!-- Card Header -->
+                    <div class="bg-gradient-to-r from-emerald-600 to-teal-500 p-6 text-white relative">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="bg-emerald-800/40 text-emerald-100 text-xs font-bold px-2.5 py-1 rounded-md border border-emerald-300/20">Present Continuous</span>
+                                <h3 class="text-2xl font-black mt-2">المضارع المستمر</h3>
+                            </div>
+                            <span class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-xl backdrop-blur-sm">
+                                ⏳
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="p-6 space-y-6 flex-grow flex flex-col justify-between">
+                        <!-- Usage -->
+                        <div>
+                            <h4 class="text-xs font-extrabold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                                <i class="fa-solid fa-bullseye text-emerald-500"></i> الاستخدام الرئيسي
+                            </h4>
+                            <p class="text-slate-700 text-sm leading-relaxed bg-emerald-50/50 p-3 rounded-xl border border-emerald-100">
+                                للتعبير عن أحداث **تحدث الآن لحظة الكلام**، أو مواقف **مؤقتة**، أو خطط مستقبلية محددة.
+                            </p>
+                        </div>
+
+                        <!-- Formation -->
+                        <div>
+                            <h4 class="text-xs font-extrabold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                                <i class="fa-solid fa-cubes text-emerald-500"></i> التكوين (Structure)
+                            </h4>
+                            <div class="bg-slate-900 text-slate-100 p-3.5 rounded-xl font-mono text-xs space-y-1.5 english-text w-full">
+                                <div class="text-emerald-300">● Subject + am / is / are + Verb (-ing)</div>
+                                <div class="text-slate-400 text-[10px]">(I am / He,She,It is / You,We,They are)</div>
+                            </div>
+                        </div>
+
+                        <!-- Keywords Badges -->
+                        <div>
+                            <h4 class="text-xs font-extrabold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                                <i class="fa-solid fa-key text-emerald-500"></i> الكلمات الدالة (Keywords)
+                            </h4>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-lg border border-emerald-200">Now</span>
+                                <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-lg border border-emerald-200">At the moment</span>
+                                <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-lg border border-emerald-200">Right now</span>
+                                <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-lg border border-emerald-200">Look!</span>
+                                <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-lg border border-emerald-200">Listen!</span>
+                                <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-lg border border-emerald-200">Currently</span>
+                            </div>
+                        </div>
+
+                        <!-- Examples List -->
+                        <div>
+                            <h4 class="text-xs font-extrabold text-slate-400 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                                <i class="fa-solid fa-list-check text-emerald-500"></i> 5 أمثلة توضيحية
+                            </h4>
+                            <ul class="space-y-2.5 text-xs sm:text-sm">
+                                <li class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 hover:border-emerald-200 transition-colors">
+                                    <div class="font-bold text-slate-900 english-text">1. Look! The bus is coming.</div>
+                                    <div class="text-slate-500 text-xs mt-0.5">انظر! الحافلة قادمة. <span class="text-emerald-600 font-semibold">(حدث يحصل الآن)</span></div>
+                                </li>
+                                <li class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 hover:border-emerald-200 transition-colors">
+                                    <div class="font-bold text-slate-900 english-text">2. She is studying right now.</div>
+                                    <div class="text-slate-500 text-xs mt-0.5">هي تدرس للاختبارات الآن.</div>
+                                </li>
+                                <li class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 hover:border-emerald-200 transition-colors">
+                                    <div class="font-bold text-slate-900 english-text">3. They are playing football at the moment.</div>
+                                    <div class="text-slate-500 text-xs mt-0.5">هم يلعبون كرة القدم في هذه اللحظة.</div>
+                                </li>
+                                <li class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 hover:border-emerald-200 transition-colors">
+                                    <div class="font-bold text-slate-900 english-text">4. Listen! The bird is singing.</div>
+                                    <div class="text-slate-500 text-xs mt-0.5">استمع! الطائر يغرد.</div>
+                                </li>
+                                <li class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 hover:border-emerald-200 transition-colors">
+                                    <div class="font-bold text-slate-900 english-text">5. I am staying with my friend this week.</div>
+                                    <div class="text-slate-500 text-xs mt-0.5">أنا أقيم مع صديقي هذا الأسبوع. <span class="text-emerald-600 font-semibold">(موقف مؤقت)</span></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 3. PRESENT PERFECT -->
+                <article id="tense-perfect" class="bg-white rounded-3xl border border-slate-200 card-shadow overflow-hidden flex flex-col transition-all hover:-translate-y-1 duration-300">
+                    <!-- Card Header -->
+                    <div class="bg-gradient-to-r from-purple-600 to-indigo-600 p-6 text-white relative">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="bg-purple-800/40 text-purple-100 text-xs font-bold px-2.5 py-1 rounded-md border border-purple-300/20">Present Perfect</span>
+                                <h3 class="text-2xl font-black mt-2">المضارع التام</h3>
+                            </div>
+                            <span class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-xl backdrop-blur-sm">
+                                🔗
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="p-6 space-y-6 flex-grow flex flex-col justify-between">
+                        <!-- Usage -->
+                        <div>
+                            <h4 class="text-xs font-extrabold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                                <i class="fa-solid fa-bullseye text-purple-500"></i> الاستخدام الرئيسي
+                            </h4>
+                            <p class="text-slate-700 text-sm leading-relaxed bg-purple-50/50 p-3 rounded-xl border border-purple-100">
+                                للربط بين الماضي والحاضر؛ حدث **وقع في الماضي وله أثر حالي**، أو تجارب شخصية دون حد محدد.
+                            </p>
+                        </div>
+
+                        <!-- Formation -->
+                        <div>
+                            <h4 class="text-xs font-extrabold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                                <i class="fa-solid fa-cubes text-purple-500"></i> التكوين (Structure)
+                            </h4>
+                            <div class="bg-slate-900 text-slate-100 p-3.5 rounded-xl font-mono text-xs space-y-1.5 english-text w-full">
+                                <div class="text-purple-300">● Subject + have / has + V3 (Past Participle)</div>
+                                <div class="text-slate-400 text-[10px]">(Have: I,You,We,They / Has: He,She,It)</div>
+                            </div>
+                        </div>
+
+                        <!-- Keywords Badges -->
+                        <div>
+                            <h4 class="text-xs font-extrabold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                                <i class="fa-solid fa-key text-purple-500"></i> الكلمات الدالة (Keywords)
+                            </h4>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="bg-purple-100 text-purple-800 text-xs font-bold px-2.5 py-1 rounded-lg border border-purple-200">Just</span>
+                                <span class="bg-purple-100 text-purple-800 text-xs font-bold px-2.5 py-1 rounded-lg border border-purple-200">Already</span>
+                                <span class="bg-purple-100 text-purple-800 text-xs font-bold px-2.5 py-1 rounded-lg border border-purple-200">Ever</span>
+                                <span class="bg-purple-100 text-purple-800 text-xs font-bold px-2.5 py-1 rounded-lg border border-purple-200">Never</span>
+                                <span class="bg-purple-100 text-purple-800 text-xs font-bold px-2.5 py-1 rounded-lg border border-purple-200">Yet</span>
+                                <span class="bg-purple-100 text-purple-800 text-xs font-bold px-2.5 py-1 rounded-lg border border-purple-200">Since / For</span>
+                            </div>
+                        </div>
+
+                        <!-- Examples List -->
+                        <div>
+                            <h4 class="text-xs font-extrabold text-slate-400 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                                <i class="fa-solid fa-list-check text-purple-500"></i> 5 أمثلة توضيحية
+                            </h4>
+                            <ul class="space-y-2.5 text-xs sm:text-sm">
+                                <li class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 hover:border-purple-200 transition-colors">
+                                    <div class="font-bold text-slate-900 english-text">1. I have lived in London for 5 years.</div>
+                                    <div class="text-slate-500 text-xs mt-0.5">عشت في لندن لمدة 5 سنوات <span class="text-purple-600 font-semibold">(وما زلت هناك)</span></div>
+                                </li>
+                                <li class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 hover:border-purple-200 transition-colors">
+                                    <div class="font-bold text-slate-900 english-text">2. She has just finished her homework.</div>
+                                    <div class="text-slate-500 text-xs mt-0.5">لقد أنهت واجبها للتو. <span class="text-purple-600 font-semibold">(حدث حديث جداً)</span></div>
+                                </li>
+                                <li class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 hover:border-purple-200 transition-colors">
+                                    <div class="font-bold text-slate-900 english-text">3. They have already seen that movie.</div>
+                                    <div class="text-slate-500 text-xs mt-0.5">لقد شاهدوا هذا الفيلم بالفعل.</div>
+                                </li>
+                                <li class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 hover:border-purple-200 transition-colors">
+                                    <div class="font-bold text-slate-900 english-text">4. Have you ever visited France?</div>
+                                    <div class="text-slate-500 text-xs mt-0.5">هل سبق لك زيارة فرنسا؟ <span class="text-purple-600 font-semibold">(سؤال عن خبرة)</span></div>
+                                </li>
+                                <li class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 hover:border-purple-200 transition-colors">
+                                    <div class="font-bold text-slate-900 english-text">5. He has not called me yet.</div>
+                                    <div class="text-slate-500 text-xs mt-0.5">هو لم يتصل بي حتى الآن.</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+
+        <!-- VIEW 2: COMPARISON TABLE -->
+        <div id="view-table" class="hidden space-y-6">
+            <div class="bg-white rounded-3xl border border-slate-200 card-shadow overflow-hidden">
+                <div class="p-6 bg-slate-900 text-white flex justify-between items-center">
+                    <div>
+                        <h3 class="text-xl font-bold">جدول المقارنة السريع (Comparison Table)</h3>
+                        <p class="text-xs text-slate-400 mt-1">نظرة عامة لمقارنة جميع الخصائص بين الأزمنة بسهولة</p>
+                    </div>
+                    <span class="text-2xl">📊</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-right border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 text-slate-700 text-xs font-extrabold uppercase border-b border-slate-200">
+                                <th class="p-4">وجه المقارنة</th>
+                                <th class="p-4 text-blue-600 bg-blue-50/50">المضارع البسيط (Simple)</th>
+                                <th class="p-4 text-emerald-600 bg-emerald-50/50">المضارع المستمر (Continuous)</th>
+                                <th class="p-4 text-purple-600 bg-purple-50/50">المضارع التام (Perfect)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 text-sm">
+                            <!-- Row 1: Focus -->
+                            <tr class="hover:bg-slate-50/80 transition-colors">
+                                <td class="p-4 font-bold text-slate-900 bg-slate-50">التركيز الأساسي</td>
+                                <td class="p-4 text-slate-700">حقائق، عادات، روتين مكرر</td>
+                                <td class="p-4 text-slate-700">حدث مستمر ويقع الآن بالضبط</td>
+                                <td class="p-4 text-slate-700">حدث في الماضي وله تأثير الآن</td>
+                            </tr>
+                            <!-- Row 2: Formula -->
+                            <tr class="hover:bg-slate-50/80 transition-colors">
+                                <td class="p-4 font-bold text-slate-900 bg-slate-50">قاعدة التكوين</td>
+                                <td class="p-4 english-text font-mono text-xs text-blue-700 font-bold">Verb 1 (or Verb + s)</td>
+                                <td class="p-4 english-text font-mono text-xs text-emerald-700 font-bold">am/is/are + Verb-ing</td>
+                                <td class="p-4 english-text font-mono text-xs text-purple-700 font-bold">have/has + Verb 3</td>
+                            </tr>
+                            <!-- Row 3: Key Signal Words -->
+                            <tr class="hover:bg-slate-50/80 transition-colors">
+                                <td class="p-4 font-bold text-slate-900 bg-slate-50">أبرز الكلمات الدالة</td>
+                                <td class="p-4">
+                                    <div class="flex flex-wrap gap-1">
+                                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded">always</span>
+                                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded">every</span>
+                                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded">usually</span>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <div class="flex flex-wrap gap-1">
+                                        <span class="bg-emerald-100 text-emerald-800 text-xs px-2 py-0.5 rounded">now</span>
+                                        <span class="bg-emerald-100 text-emerald-800 text-xs px-2 py-0.5 rounded">at the moment</span>
+                                        <span class="bg-emerald-100 text-emerald-800 text-xs px-2 py-0.5 rounded">Look!</span>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <div class="flex flex-wrap gap-1">
+                                        <span class="bg-purple-100 text-purple-800 text-xs px-2 py-0.5 rounded">just</span>
+                                        <span class="bg-purple-100 text-purple-800 text-xs px-2 py-0.5 rounded">already</span>
+                                        <span class="bg-purple-100 text-purple-800 text-xs px-2 py-0.5 rounded">since/for</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- Row 4: Example -->
+                            <tr class="hover:bg-slate-50/80 transition-colors">
+                                <td class="p-4 font-bold text-slate-900 bg-slate-50">مثال توضيحي مقترن</td>
+                                <td class="p-4">
+                                    <div class="english-text font-semibold text-slate-800">I eat lunch.</div>
+                                    <div class="text-xs text-slate-500 mt-1">أنا آكل الغداء (عادة)</div>
+                                </td>
+                                <td class="p-4">
+                                    <div class="english-text font-semibold text-slate-800">I am eating lunch.</div>
+                                    <div class="text-xs text-slate-500 mt-1">أنا آكل الغداء (الآن حالياً)</div>
+                                </td>
+                                <td class="p-4">
+                                    <div class="english-text font-semibold text-slate-800">I have eaten lunch.</div>
+                                    <div class="text-xs text-slate-500 mt-1">أكلت الغداء (لتوّي ولست جائعاً)</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW 3: INTERACTIVE QUIZ -->
+        <div id="view-quiz" class="hidden space-y-6">
+            <div class="max-w-2xl mx-auto bg-white rounded-3xl border border-slate-200 card-shadow overflow-hidden">
+                <!-- Quiz Header -->
+                <div class="bg-indigo-600 p-6 text-white flex justify-between items-center">
+                    <div>
+                        <h3 class="text-xl font-bold">اختبر فهمك التفاعلي</h3>
+                        <p class="text-xs text-indigo-200 mt-1">اختر الزمن المناسب للجملة التالية بناءً على السياق والكلمات المفتاحية</p>
+                    </div>
+                    <span id="quiz-score-badge" class="bg-white/20 text-white font-bold text-xs px-3 py-1.5 rounded-full border border-white/20">
+                        النتيجة: <span id="score-val">0</span> / <span id="total-val">5</span>
+                    </span>
+                </div>
+
+                <!-- Quiz Body -->
+                <div class="p-6 sm:p-8 space-y-6">
+                    <!-- Progress Bar -->
+                    <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+                        <div id="quiz-progress" class="bg-indigo-600 h-2 rounded-full transition-all duration-300 w-1/5"></div>
+                    </div>
+
+                    <!-- Question Card -->
+                    <div id="quiz-content" class="space-y-6">
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                            <span id="q-number" class="text-xs font-bold text-indigo-600 uppercase tracking-wider block mb-2">السؤال 1 من 5</span>
+                            <h4 id="q-text-en" class="text-lg sm:text-xl font-bold text-slate-900 english-text mb-2">She ______ (drink) coffee every morning.</h4>
+                            <p id="q-translation" class="text-xs text-slate-500">هي تشرب القهوة كل صباح.</p>
+                        </div>
+
+                        <!-- Options -->
+                        <div id="quiz-options" class="grid grid-cols-1 gap-3">
+                            <!-- Options rendered dynamically via JS -->
+                        </div>
+
+                        <!-- Feedback Box -->
+                        <div id="quiz-feedback" class="hidden p-4 rounded-xl text-xs sm:text-sm font-semibold transition-all"></div>
+
+                        <!-- Action Button -->
+                        <div class="flex justify-end pt-2">
+                            <button id="next-btn" onclick="nextQuestion()" class="hidden px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs sm:text-sm font-bold rounded-xl transition-all shadow-md shadow-indigo-200">
+                                السؤال التالي <i class="fa-solid fa-arrow-left mr-2"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quiz Completion Screen -->
+                    <div id="quiz-result" class="hidden text-center py-8 space-y-4">
+                        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto shadow-lg">
+                            🎉
+                        </div>
+                        <h4 class="text-2xl font-black text-slate-900">أحسنت! أكملت الاختبار</h4>
+                        <p class="text-slate-600 text-sm">حصلت على نتيجة <span id="final-score" class="font-bold text-indigo-600">0</span> من 5</p>
+                        <button onclick="restartQuiz()" class="px-6 py-2.5 bg-indigo-600 text-white font-bold rounded-xl text-sm hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-100">
+                            إعادة الاختبار <i class="fa-solid fa-rotate-right mr-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>دليل تعلم أزمنة المضارع الإنجليزية مصمم بأعلى معايير التفاعلية للبصريات والتعلم التفاعلي © 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab Navigation Logic
+        function switchView(viewName) {
+            const views = ['learn', 'table', 'quiz'];
+            views.forEach(v => {
+                const el = document.getElementById(`view-${v}`);
+                const tab = document.getElementById(`tab-${v}`);
+                if (v === viewName) {
+                    el.classList.remove('hidden');
+                    tab.classList.add('bg-white', 'text-indigo-600', 'shadow-sm');
+                    tab.classList.remove('text-slate-600');
+                } else {
+                    el.classList.add('hidden');
+                    tab.classList.remove('bg-white', 'text-indigo-600', 'shadow-sm');
+                    tab.classList.add('text-slate-600');
+                }
+            });
+        }
+
+        function scrollToTense(tense) {
+            document.getElementById(`tense-${tense}`)?.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Quiz State & Data
+        const questions = [
+            {
+                en: "She ______ coffee every morning.",
+                ar: "هي تشرب القهوة كل صباح (عادة روتينية).",
+                options: [
+                    { text: "drinks", correct: true, tense: "Present Simple" },
+                    { text: "is drinking", correct: false, tense: "Present Continuous" },
+                    { text: "has drunk", correct: false, tense: "Present Perfect" }
+                ],
+                explanation: "استخدمنا (drinks) في زمن المضارع البسيط بسبب وجود الكلمة الدالة 'every morning' التي تدل على العادة."
+            },
+            {
+                en: "Look! The bus ______ right now.",
+                ar: "انظر! الحافلة قادمة في هذه اللحظة.",
+                options: [
+                    { text: "comes", correct: false, tense: "Present Simple" },
+                    { text: "is coming", correct: true, tense: "Present Continuous" },
+                    { text: "has come", correct: false, tense: "Present Perfect" }
+                ],
+                explanation: "استخدمنا (is coming) لأن الأمر يحدث الآن مع وجود تنبيه 'Look!' والكلمة 'right now'."
+            },
+            {
+                en: "I ______ my homework just now.",
+                ar: "أنا أنهيت واجبي للتو.",
+                options: [
+                    { text: "finish", correct: false, tense: "Present Simple" },
+                    { text: "am finishing", correct: false, tense: "Present Continuous" },
+                    { text: "have finished", correct: true, tense: "Present Perfect" }
+                ],
+                explanation: "استخدمنا (have finished) مع الكلمة المفتاحية 'just' للتعبير عن حدث اكتمل مؤخراً."
+            },
+            {
+                en: "They ______ football at the moment.",
+                ar: "هم يلعبون كرة القدم في الوقت الحالي.",
+                options: [
+                    { text: "are playing", correct: true, tense: "Present Continuous" },
+                    { text: "play", correct: false, tense: "Present Simple" },
+                    { text: "have played", correct: false, tense: "Present Perfect" }
+                ],
+                explanation: "العبارة 'at the moment' تعني أن الحدث مستمر الآن لذا نختار المضارع المستمر."
+            },
+            {
+                en: "Water ______ at 100°C.",
+                ar: "يغلي الماء عند 100 درجة مئوية.",
+                options: [
+                    { text: "is boiling", correct: false, tense: "Present Continuous" },
+                    { text: "boils", correct: true, tense: "Present Simple" },
+                    { text: "has boiled", correct: false, tense: "Present Perfect" }
+                ],
+                explanation: "الحقائق العلمية الثابتة تُعبر عنها دائماً بـ المضارع البسيط (boils)."
+            }
+        ];
+
+        let currentQIndex = 0;
+        let score = 0;
+        let answered = false;
+
+        function renderQuestion() {
+            const q = questions[currentQIndex];
+            answered = false;
+
+            document.getElementById('q-number').innerText = `السؤال ${currentQIndex + 1} من ${questions.length}`;
+            document.getElementById('q-text-en').innerText = q.en;
+            document.getElementById('q-translation').innerText = q.ar;
+            document.getElementById('quiz-progress').style.width = `${((currentQIndex + 1) / questions.length) * 100}%`;
+
+            const feedback = document.getElementById('quiz-feedback');
+            feedback.className = 'hidden p-4 rounded-xl text-xs sm:text-sm font-semibold transition-all';
+            
+            document.getElementById('next-btn').classList.add('hidden');
+
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-right p-4 rounded-xl border border-slate-200 hover:border-indigo-400 bg-white hover:bg-indigo-50/50 transition-all flex justify-between items-center group font-medium text-slate-800 text-sm";
+                btn.onclick = () => selectOption(idx);
+                btn.innerHTML = `
+                    <span class="english-text font-bold text-base">${opt.text}</span>
+                    <span class="text-xs text-slate-400 group-hover:text-indigo-600 font-normal">${opt.tense}</span>
+                `;
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function selectOption(optIndex) {
+            if (answered) return;
+            answered = true;
+
+            const q = questions[currentQIndex];
+            const selectedOpt = q.options[optIndex];
+            const feedback = document.getElementById('quiz-feedback');
+            const optionsContainer = document.getElementById('quiz-options');
+            const optionBtns = optionsContainer.children;
+
+            if (selectedOpt.correct) {
+                score++;
+                document.getElementById('score-val').innerText = score;
+                optionBtns[optIndex].className = "w-full text-right p-4 rounded-xl border-2 border-emerald-500 bg-emerald-50 text-emerald-900 font-bold flex justify-between items-center text-sm";
+                feedback.className = "p-4 rounded-xl text-xs sm:text-sm font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200";
+                feedback.innerHTML = `<i class="fa-solid fa-circle-check ml-1.5 text-base"></i> <strong>إجابة صحيحة!</strong> ${q.explanation}`;
+            } else {
+                optionBtns[optIndex].className = "w-full text-right p-4 rounded-xl border-2 border-rose-500 bg-rose-50 text-rose-900 font-bold flex justify-between items-center text-sm";
+                feedback.className = "p-4 rounded-xl text-xs sm:text-sm font-semibold bg-rose-100 text-rose-800 border border-rose-200";
+                feedback.innerHTML = `<i class="fa-solid fa-circle-xmark ml-1.5 text-base"></i> <strong>إجابة خاطئة.</strong> ${q.explanation}`;
+                
+                // Highlight correct answer
+                q.options.forEach((o, i) => {
+                    if (o.correct) {
+                        optionBtns[i].className = "w-full text-right p-4 rounded-xl border-2 border-emerald-500 bg-emerald-50 text-emerald-900 font-bold flex justify-between items-center text-sm";
+                    }
+                });
+            }
+
+            feedback.classList.remove('hidden');
+            document.getElementById('next-btn').classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            currentQIndex++;
+            if (currentQIndex < questions.length) {
+                renderQuestion();
+            } else {
+                showQuizResult();
+            }
+        }
+
+        function showQuizResult() {
+            document.getElementById('quiz-content').classList.add('hidden');
+            document.getElementById('quiz-result').classList.remove('hidden');
+            document.getElementById('final-score').innerText = score;
+        }
+
+        function restartQuiz() {
+            currentQIndex = 0;
+            score = 0;
+            document.getElementById('score-val').innerText = '0';
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('quiz-content').classList.remove('hidden');
+            renderQuestion();
+        }
+
+        // Initialize quiz on load
+        window.onload = function() {
+            renderQuestion();
+        };
+    </script>
+</body>
+</html>
